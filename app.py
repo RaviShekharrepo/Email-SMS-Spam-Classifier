@@ -5,7 +5,6 @@ import string
 from nltk.corpus import stopwords
 import nltk
 from nltk.stem.porter import PorterStemmer
-from streamlit_lottie import st_lottie
 import time
 import warnings
 import pandas as pd
@@ -132,13 +131,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Load NLTK resources
-try:
-    nltk.download('punkt', quiet=True)
-    nltk.download('punkt_tab', quiet=True)
-    nltk.download('stopwords', quiet=True)
-except:
-    pass
+# NLTK resources are downloaded via nltk.txt on Netlify
 
 # Create a PorterStemmer object
 ps = PorterStemmer()
@@ -156,13 +149,6 @@ def load_model():
 
 tfidf, model = load_model()
 
-# Function to load Lottie file
-def load_lottiefile(filepath: str):
-    try:
-        with open(filepath, 'r') as f:
-            return json.load(f)
-    except:
-        return None
 
 # Function to transform text
 def transform_text(text: str) -> str:
