@@ -1,0 +1,6 @@
+nltk
+streamlit
+streamlit_lottie
+scikit-learn
+plotly
+pandas
