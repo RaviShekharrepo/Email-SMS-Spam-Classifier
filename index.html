@@ -6,55 +6,153 @@
     <title>SpamGuard Pro - Email/SMS Spam Classifier</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f2f5;
+            justify-content: center;
         }
         .container {
-            text-align: center;
             background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
         }
         h1 {
-            color: #333;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
         }
-        p {
-            color: #666;
+        .logo {
+            font-size: 4em;
+            margin-bottom: 20px;
         }
-        .loading {
+        .instructions {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: left;
+            border-left: 5px solid #667eea;
+        }
+        code {
+            background: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .btn {
             display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(0,0,0,.3);
-            border-radius: 50%;
-            border-top-color: #667eea;
-            animation: spin 1s ease-in-out infinite;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+        }
+        .note {
+            background: #fff8e1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🛡️ SpamGuard Pro</h1>
-        <p>Loading spam classifier application...</p>
-        <div class="loading"></div>
-        <p>Please wait while we redirect you to the application</p>
-        <p>If you are not redirected automatically, <a href="/app.py">click here</a></p>
+        <div class="logo">🛡️</div>
+        <h1>SpamGuard Pro</h1>
+        <p style="text-align: center; color: #6c757d; font-size: 1.2em; margin-bottom: 30px;">
+            Advanced AI-powered spam detection for emails and SMS messages
+        </p>
+        
+        <div class="note">
+            <h3>ℹ️ Important Deployment Note</h3>
+            <p>Streamlit applications require specific server configurations that are not available in static hosting platforms like Netlify. For the best experience, we recommend using one of these deployment options:</p>
+        </div>
+        
+        <div class="instructions">
+            <h3>🚀 Recommended Deployment Options:</h3>
+            <ol>
+                <li><strong>Streamlit Sharing</strong> - The easiest option for Streamlit apps:
+                    <ul>
+                        <li>Fork this repository to your GitHub account</li>
+                        <li>Go to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a></li>
+                        <li>Sign in with your GitHub account</li>
+                        <li>Click "New app" and select this repository</li>
+                    </ul>
+                </li>
+                <li><strong>Heroku</strong> - Supports Python web applications well:
+                    <ul>
+                        <li>Install the <a href="https://devcenter.heroku.com/articles/heroku-cli" target="_blank">Heroku CLI</a></li>
+                        <li>Create a Heroku app with the provided Procfile</li>
+                    </ul>
+                </li>
+                <li><strong>Docker</strong> - For containerized deployment:
+                    <ul>
+                        <li>Build with the provided Dockerfile</li>
+                        <li>Deploy to any container hosting service</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+        
+        <div class="instructions">
+            <h3>💻 Local Development:</h3>
+            <p>If you want to run this application locally:</p>
+            <ol>
+                <li>Clone the repository: <code>git clone https://github.com/RaviShekharrepo/Email-SMS-Spam-Classifier.git</code></li>
+                <li>Navigate to the project directory: <code>cd Email-SMS-Spam-Classifier</code></li>
+                <li>Install dependencies: <code>pip install -r requirements.txt</code></li>
+                <li>Download NLTK data: <code>python -m nltk.downloader stopwords punkt</code></li>
+                <li>Run the application: <code>streamlit run app.py</code></li>
+            </ol>
+        </div>
+        
+        <p>
+            <a href="https://github.com/RaviShekharrepo/Email-SMS-Spam-Classifier" class="btn" target="_blank">
+                📂 View Source Code on GitHub
+            </a>
+        </p>
     </div>
     
-    <script>
-        // Attempt to redirect to the Streamlit app
-        setTimeout(function() {
-            window.location.href = "/app.py";
-        }, 2000);
-    </script>
+    <div class="footer">
+        <p>Built with ❤️ using Python, Streamlit, NLTK, and Scikit-learn</p>
+        <p>© 2025 SpamGuard Pro - All rights reserved</p>
+    </div>
 </body>
 </html>

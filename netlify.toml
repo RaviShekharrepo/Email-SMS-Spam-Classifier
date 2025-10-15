@@ -5,12 +5,21 @@
 [build.environment]
   PYTHON_VERSION = "3.9"
 
+[[plugins]]
+  package = "@netlify/plugin-functions-python"
+
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
 
 [[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/streamlit_app"
+  from = "/streamlit-info"
+  to = "/.netlify/functions/streamlit_wrapper"
   status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false

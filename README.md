@@ -8,8 +8,8 @@
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Deployment](#deployment)
-  - [Netlify](#netlify-deployment)
-  - [Streamlit Sharing](#streamlit-sharing)
+  - [Important Note About Netlify](#important-note-about-netlify)
+  - [Streamlit Sharing](#streamlit-sharing-recommended)
   - [Heroku](#heroku-deployment)
   - [Docker](#docker-deployment)
 - [Contributions](#contributions)
@@ -100,26 +100,15 @@ To get the Spam Classifier up and running locally on your machine, please follow
 
 ## Deployment
 
-### Netlify Deployment
+### Important Note About Netlify
 
-This application is configured for deployment on Netlify with the following files:
-- `netlify.toml`: Build configuration
-- `runtime.txt`: Python version specification
-- `build.sh` and `build.bat`: Build scripts for Unix and Windows
-- `.streamlit/config.toml`: Streamlit configuration
-- `functions/`: Netlify functions directory
+**Streamlit applications have specific server requirements that are not compatible with Netlify's serverless function architecture.** While this project includes Netlify configuration files, the application cannot run directly on Netlify due to these technical limitations.
 
-**Steps to deploy on Netlify:**
-1. Fork this repository to your GitHub account
-2. Sign up/Login to [Netlify](https://netlify.com)
-3. Click "New site from Git" and connect to your GitHub
-4. Select this repository
-5. Netlify will automatically detect the configuration and deploy your site
-6. The site will be available at a unique Netlify URL
+When deployed to Netlify, visitors will see a landing page with instructions on how to properly deploy the application using recommended platforms.
 
-### Streamlit Sharing
+### Streamlit Sharing (Recommended)
 
-Streamlit Sharing is the easiest way to deploy Streamlit applications:
+Streamlit Sharing is the easiest and most appropriate way to deploy Streamlit applications:
 
 1. Fork this repository to your GitHub account
 2. Go to [share.streamlit.io](https://share.streamlit.io)
