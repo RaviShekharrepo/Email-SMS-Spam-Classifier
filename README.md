@@ -7,6 +7,11 @@
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
+- [Deployment](#deployment)
+  - [Netlify](#netlify-deployment)
+  - [Streamlit Sharing](#streamlit-sharing)
+  - [Heroku](#heroku-deployment)
+  - [Docker](#docker-deployment)
 - [Contributions](#contributions)
 - [License](#license)
 
@@ -16,7 +21,7 @@ The main objective behind this application is to classify SMS/Email as spam or n
 
 Unfortunately, this environment also provides fertile ground for spammers who exploit it to execute fraudulent activities. To combat this, our application utilizes Python, a powerful tool for building machine learning models, to help distinguish spam from legitimate messages. By automating the detection of spam, this application contributes to reducing cybercrimes and simplifying the digital lives of users.
 
-The project leverages **Naive Bayes Classifiers**, a family of algorithms based on Bayes’ Theorem, which presumes independence between predictive features. This theorem is crucial for calculating the likelihood of a message being spam based on various characteristics of the data.
+The project leverages **Naive Bayes Classifiers**, a family of algorithms based on Bayes' Theorem, which presumes independence between predictive features. This theorem is crucial for calculating the likelihood of a message being spam based on various characteristics of the data.
 
 ## Screenshots
 
@@ -34,7 +39,6 @@ Here are some screenshots of the application:
 ## Deployed Website
 
 The classifier is accessible online at [Spam Classifier Web App](). Users can test the functionality by submitting text to be classified in real-time.
-
 
 ## Features
 
@@ -62,9 +66,6 @@ The classifier is accessible online at [Spam Classifier Web App](). Users can te
 6. **pickle** - To export the efficient machine learning model.
 7. **time** - To delay function calls.
 
-**Design Software:**
-- Figma
-
 ## Installation
 
 ### Prerequisites
@@ -84,14 +85,81 @@ To get the Spam Classifier up and running locally on your machine, please follow
    ```
    pip install -r requirements.txt
    ```
-3. **Run the Streamlit application:**
+3. **Download NLTK data:**
+   ```
+   python -m nltk.downloader stopwords punkt
+   ```
+4. **Run the Streamlit application:**
     ```
     streamlit run app.py
     ```
-4. **Use this Command to run the app**
+5. **Alternative command to run the app:**
    ```
    python -m streamlit run app.py
    ```
+
+## Deployment
+
+### Netlify Deployment
+
+This application is configured for deployment on Netlify with the following files:
+- `netlify.toml`: Build configuration
+- `runtime.txt`: Python version specification
+- `build.sh` and `build.bat`: Build scripts for Unix and Windows
+- `.streamlit/config.toml`: Streamlit configuration
+- `functions/`: Netlify functions directory
+
+**Steps to deploy on Netlify:**
+1. Fork this repository to your GitHub account
+2. Sign up/Login to [Netlify](https://netlify.com)
+3. Click "New site from Git" and connect to your GitHub
+4. Select this repository
+5. Netlify will automatically detect the configuration and deploy your site
+6. The site will be available at a unique Netlify URL
+
+### Streamlit Sharing
+
+Streamlit Sharing is the easiest way to deploy Streamlit applications:
+
+1. Fork this repository to your GitHub account
+2. Go to [share.streamlit.io](https://share.streamlit.io)
+3. Sign in with your GitHub account
+4. Click "New app"
+5. Select this repository
+6. Set the main file path to `app.py`
+7. Click "Deploy"
+
+### Heroku Deployment
+
+This application includes a `Procfile` for Heroku deployment:
+
+1. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+2. Create a Heroku app:
+   ```
+   heroku create your-app-name
+   ```
+3. Set the Python buildpack:
+   ```
+   heroku buildpacks:set heroku/python
+   ```
+4. Deploy:
+   ```
+   git push heroku main
+   ```
+
+### Docker Deployment
+
+A Dockerfile is provided for containerized deployment:
+
+1. Build the Docker image:
+   ```
+   docker build -t spam-classifier .
+   ```
+2. Run the container:
+   ```
+   docker run -p 8501:8501 spam-classifier
+   ```
+3. Access the application at `http://localhost:8501`
 
 ## Contributions
 
